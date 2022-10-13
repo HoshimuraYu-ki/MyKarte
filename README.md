@@ -35,7 +35,7 @@ has_many: diseases
 | objective         | string     |                               |
 | assessment        | string     | null: false                   |
 | plan              | string     | null: false                   |
-| next              | string     | null: false                   |
+| next_day          | string     | null: false                   |
 
 ### Association
 belongs_to: user

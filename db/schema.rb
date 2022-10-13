@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2022_10_13_093200) do
     t.string "objective"
     t.string "assessment", null: false
     t.string "plan", null: false
-    t.string "next", null: false
+    t.string "next_day", null: false
     t.bigint "user_id", null: false
     t.bigint "hospital_clinic_id", null: false
     t.datetime "created_at", precision: 6, null: false

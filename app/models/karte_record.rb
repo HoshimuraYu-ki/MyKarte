@@ -1,4 +1,5 @@
 class KarteRecord
+  include ActiveRecord::AttributeAssignment
   include ActiveModel::Model
   attr_accessor :user_id,
                 :institution_name,
@@ -9,7 +10,7 @@ class KarteRecord
                 :objective,
                 :assessment,
                 :plan,
-                :next
+                :next_day
 
   with_options presence: true do
     validates :user_id
@@ -20,11 +21,11 @@ class KarteRecord
     validates :subjective
     validates :assessment
     validates :plan
-    validates :next
+    validates :next_day
   end
 
   def save
-    hospital_clinic = Hospital_clinic.create(institution_name: institution_name, clinical_department_id: clinical_department_id,user_id: user_id)
-    Karte.create(consultation_date: consultation_date,doctor: doctor,subjective: subjective,objective: objective,assessment: assessment,plan: plan,next: "next",user_id: user_id,hospital_clinic_id: hospital_clinic_id)
+    hospital_clinic = HospitalClinic.create(institution_name: institution_name, clinical_department_id: clinical_department_id,user_id: user_id)
+    Karte.create(consultation_date: consultation_date,doctor: doctor,subjective: subjective,objective: objective,assessment: assessment,plan: plan,next_day: next_day,user_id: user_id,hospital_clinic_id: hospital_clinic.id)
   end
 end
