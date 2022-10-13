@@ -1,0 +1,97 @@
+.main-view{
+  display: flex;
+  background-color: #F2E3D5;
+}
+.main{
+  width: calc(100% - 15vw);
+  padding:3vh 20px 0px;
+  border: #3CA6A6 2px solid;
+  border-radius: 4px;
+}
+.karte-view{
+  width: 100%;
+  display: flex;
+}
+.karte-left{
+  width: 30%;
+  margin-right: 10px;
+}
+.karte-right{
+  width: 70%;
+}
+.main-title{
+  width: 100%;
+  font-size: 28px;
+  color: #024959;
+  border-bottom: #024959 2px solid;
+}
+.category-title{
+  width: 100%;
+  margin: 10px;
+  font-size:22px;
+  color: #024959;
+  border-bottom: #3CA6A6 2px solid;
+}
+.label-title{
+  width: 100%;
+  margin-left: 25px;
+  font-size:18px;
+  color: #024959;
+}
+.input-consultation-date {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 25px;
+}
+.input-consultation-date select {
+  width: 75px;
+  height: 40px;
+  margin-top: 5px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.input-consultation-date p {
+  line-height: 60px;
+  padding: 0 6px;
+  font-size: 18px;
+}
+.small-text-box {
+  width: 85%;
+  height: 30px;
+  margin-left: 30px;
+  padding:10px;
+  resize: none;
+}
+.select-box{
+  width: 90%;
+  height: 40px;
+  margin-left: 30px;
+  padding:10px
+}
+.big-text-box{
+  width: 85%;
+  height: 60px;
+  margin-left: 30px;
+  padding:10px;
+  resize: none;
+}
+.record-btn{
+
+}
+.record-green-btn{
+  width: 95%;
+  height: 12vh;
+  background-color:#026773;
+  border: 5px solid #3CA6A6;
+  color:#F2E3D5;
+  margin-top: 90px;
+  margin-left: 20px;
+  line-height: 48px;
+  font-size: 28px;
+  cursor: pointer;
+}
