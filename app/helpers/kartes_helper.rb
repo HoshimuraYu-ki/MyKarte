@@ -1,0 +1,2 @@
+module KartesHelper
+end
