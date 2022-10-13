@@ -14,7 +14,7 @@ class KarteRecord
   with_options presence: true do
     validates :user_id
     validates :institution_name
-    validates :clinical_department_id
+    validates :clinical_department_id,numericality: { other_than: 1 , message: "診療科を選択してください"}
     validates :consultation_date
     validates :doctor
     validates :subjective
