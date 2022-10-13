@@ -1,0 +1,20 @@
+.sidebar{
+  height: calc(100vh - 70px);
+  width: 250px;
+  background-color:#3CA6A6;
+  border: 2px #F2E3D5 solid;
+  position: relative;
+  border-top:none;
+}
+.new-record-btn{
+  font-size: 26px;
+  color: #F2E3D5;
+  background-color: #026773;
+  border: 2px #F2E3D5 solid;
+  border-radius: 4px;
+  padding: 12px 20px;
+  text-decoration: none;
+  position: absolute;
+  left: 40px;
+  top: 25px;
+}
