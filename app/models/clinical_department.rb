@@ -21,4 +21,6 @@ class ClinicalDepartment < ActiveHash::Base
     { id: 19, name: '血液内科' },
     { id: 20, name: 'その他' },
     ]
+    include ActiveHash::Associations
+    has_many :hospital_clinic
   end

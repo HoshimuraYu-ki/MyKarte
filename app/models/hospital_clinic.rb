@@ -4,6 +4,6 @@ class HospitalClinic < ApplicationRecord
   has_many :diseases
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :clinical_department_id
+  belongs_to :clinical_department
   
 end
