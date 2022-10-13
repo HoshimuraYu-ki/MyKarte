@@ -5,6 +5,9 @@ class CreateDiseases < ActiveRecord::Migration[6.0]
       t.date    :onset_date   ,null: false
       t.integer :outcome_id
       t.date    :outcome_date
+
+      t.references :user            ,null: false,foreign_key: true
+      t.references :hospital_clinic ,null: false,foreign_key: true
       t.timestamps
     end
   end
