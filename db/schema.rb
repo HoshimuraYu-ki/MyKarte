@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_10_13_093200) do
   end
 
   create_table "kartes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "consultation_date", null: false
     t.string "doctor", null: false
     t.string "subjective", null: false
     t.string "objective"

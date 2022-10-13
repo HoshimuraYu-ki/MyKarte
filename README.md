@@ -25,16 +25,17 @@ has_many: hospital_clinics
 has_many: diseases
 
 ## kartes table
-| Column          | Type       | Options                       |
-| --------------- | ---------- | ----------------------------- |
-| user            | references | null: false, foreign_key:true |
-| hospital_clinic | references | null: false, foreign_key:true |
-| doctor          | string     | null: false                   |
-| subjective      | string     | null: false                   |
-| objective       | string     |                               |
-| assessment      | string     | null: false                   |
-| plan            | string     | null: false                   |
-| next            | string     | null: false                   |
+| Column            | Type       | Options                       |
+| ----------------- | ---------- | ----------------------------- |
+| user              | references | null: false, foreign_key:true |
+| hospital_clinic   | references | null: false, foreign_key:true |
+| consultation_date | date       | null: false, DEFAULT_GENERATED|
+| doctor            | string     | null: false                   |
+| subjective        | string     | null: false                   |
+| objective         | string     |                               |
+| assessment        | string     | null: false                   |
+| plan              | string     | null: false                   |
+| next              | string     | null: false                   |
 
 ### Association
 belongs_to: user
