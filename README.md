@@ -44,7 +44,7 @@ belongs_to: hospital_clinic
 | Column                 | Type       | Options                       |
 | ---------------------- | ---------- | ----------------------------- |
 | user                   | references | null: false, foreign_key:true |
-| institution_name       | string     | null: false                   |
+| institution_name       | string     | null: false, unique: true     |
 | clinical_department_id | integer    | null: false                   |
 
 ### Association
@@ -57,9 +57,9 @@ has_many: diseases
 | --------------- | ---------- | ----------------------------- |
 | user            | references | null: false, foreign_key:true |
 | hospital_clinic | references | null: false, foreign_key:true |
-| disease         | string     | null: false                   |
+| disease_name    | string     | null: false, unique: true     |
 | onset_date      | date       | null: false                   |
-| outcome_id      | integer    | null: false                   |
+| outcome_id      | integer    |                               |
 | outcome_date    | date       |                               |
 ### Association
 belongs_to: user
