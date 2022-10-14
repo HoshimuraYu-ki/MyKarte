@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_13_050330) do
+ActiveRecord::Schema.define(version: 2022_10_13_093200) do
+
+  create_table "diseases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "disease_name", null: false
+    t.date "onset_date", null: false
+    t.integer "outcome_id"
+    t.date "outcome_date"
+    t.bigint "user_id", null: false
+    t.bigint "hospital_clinic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hospital_clinic_id"], name: "index_diseases_on_hospital_clinic_id"
+    t.index ["user_id"], name: "index_diseases_on_user_id"
+  end
+
+  create_table "hospital_clinics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "institution_name", null: false
+    t.integer "clinical_department_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_hospital_clinics_on_user_id"
+  end
+
+  create_table "kartes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "consultation_date", null: false
+    t.string "doctor", null: false
+    t.string "subjective", null: false
+    t.string "objective"
+    t.string "assessment", null: false
+    t.string "plan", null: false
+    t.string "next_day", null: false
+    t.bigint "user_id", null: false
+    t.bigint "hospital_clinic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hospital_clinic_id"], name: "index_kartes_on_hospital_clinic_id"
+    t.index ["user_id"], name: "index_kartes_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +64,9 @@ ActiveRecord::Schema.define(version: 2022_10_13_050330) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "diseases", "hospital_clinics"
+  add_foreign_key "diseases", "users"
+  add_foreign_key "hospital_clinics", "users"
+  add_foreign_key "kartes", "hospital_clinics"
+  add_foreign_key "kartes", "users"
 end

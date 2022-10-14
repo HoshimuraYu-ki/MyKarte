@@ -1,0 +1,9 @@
+<div class="sidebar">
+<% if user_signed_in? %>
+  <div>
+   <%= link_to "新規記録", new_karte_path , method: :get, class: "new-record-btn" %>
+  </div>
+  <% else %>
+    <div>記録するにはログインが必要です（仮）</div>
+<%end%>
+</div>

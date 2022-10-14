@@ -25,16 +25,17 @@ has_many: hospital_clinics
 has_many: diseases
 
 ## kartes table
-| Column          | Type       | Options                       |
-| --------------- | ---------- | ----------------------------- |
-| user            | references | null: false, foreign_key:true |
-| hospital_clinic | references | null: false, foreign_key:true |
-| doctor          | string     | null: false                   |
-| subjective      | string     | null: false                   |
-| objective       | string     |                               |
-| assessment      | string     | null: false                   |
-| plan            | string     | null: false                   |
-| next            | string     | null: false                   |
+| Column            | Type       | Options                       |
+| ----------------- | ---------- | ----------------------------- |
+| user              | references | null: false, foreign_key:true |
+| hospital_clinic   | references | null: false, foreign_key:true |
+| consultation_date | date       | null: false, DEFAULT_GENERATED|
+| doctor            | string     | null: false                   |
+| subjective        | string     | null: false                   |
+| objective         | string     |                               |
+| assessment        | string     | null: false                   |
+| plan              | string     | null: false                   |
+| next_day          | string     | null: false                   |
 
 ### Association
 belongs_to: user
@@ -44,7 +45,7 @@ belongs_to: hospital_clinic
 | Column                 | Type       | Options                       |
 | ---------------------- | ---------- | ----------------------------- |
 | user                   | references | null: false, foreign_key:true |
-| institution_name       | string     | null: false                   |
+| institution_name       | string     | null: false, unique: true     |
 | clinical_department_id | integer    | null: false                   |
 
 ### Association
@@ -57,9 +58,9 @@ has_many: diseases
 | --------------- | ---------- | ----------------------------- |
 | user            | references | null: false, foreign_key:true |
 | hospital_clinic | references | null: false, foreign_key:true |
-| disease         | string     | null: false                   |
+| disease_name    | string     | null: false, unique: true     |
 | onset_date      | date       | null: false                   |
-| outcome_id      | integer    | null: false                   |
+| outcome_id      | integer    |                               |
 | outcome_date    | date       |                               |
 ### Association
 belongs_to: user

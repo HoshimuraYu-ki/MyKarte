@@ -1,0 +1,50 @@
+<%= render "shared/header" %>
+
+<div class="main-view">
+  <%= render "shared/sidebar" %>
+
+  <div class='main'>
+    <div class="main-title">新規記録</div>
+    <%= form_with model: @karte_record,url: "/kartes",method: :POST,local: true do |f| %>
+    <div class="karte-view">
+      <div class="karte-left">
+        <div class="category-title">受診した日</div>
+          <div class="input-consultation-date">
+          <%= raw sprintf(
+              f.date_select(
+              :consultation_date,
+              class:'select-date',
+              id:"consultation_date",
+              use_month_numbers: true,
+              selected: Date.today,
+              date_separator: '%s'),
+              "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          </div>
+        <div class="category-title">医療機関の情報</div>
+        <div class="label-title">医療機関の名前</div>
+          <%= f.text_area :institution_name, class:"small-text-box", id:"institution_name", placeholder:"受診した病院、クリニックの名前", maxlength:"40" %>
+        <div class="label-title">診療科</div>
+          <%= f.collection_select(:clinical_department_id,ClinicalDepartment.all, :id, :name, {}, {class:"select-box", id:"clinical_department"}) %>
+        <div class="label-title">医師の名前</div>
+          <%= f.text_area :doctor, class:"small-text-box", id:"docotor", placeholder:"診察をした医師の名前", maxlength:"40" %>
+        <div class="record-btn">
+          <%= f.submit "記録完了" ,class:"record-green-btn", id:"button" %>
+        </div>
+      </div>
+      <div class="karte-right">
+        <div class="category-title">マイカルテ</div>
+          <div class="label-title">S.主観的なあなたの症状</div>
+            <%= f.text_area :subjective, class:"big-text-box", id:"subjective", placeholder:"いつから、どこが、どういうときに、どうあるかを整理して記録してみましょう。前回と変わりなしでもOKですよ。", maxlength:"100" %>
+          <div class="label-title">O.検査の内容や結果</div>
+            <%= f.text_area :objective, class:"big-text-box", id:"objective", placeholder:"実施した検査の内容や結果を記録しましょう。血圧や悪かった血液検査の数値など記録してみましょう。", maxlength:"100" %>
+          <div class="label-title">A.先生の診断</div>
+            <%= f.text_area :assessment, class:"big-text-box", id:"assessment", placeholder:"先生の診断内容や説明を記録してみましょう。自分の言葉で記録することで自身の病状を客観的に考えられるかもしれません。", maxlength:"100" %>
+          <div class="label-title">P.治療の内容や計画</div>
+            <%= f.text_area :plan, class:"big-text-box", id:"plan", placeholder:"経過観察、お薬がでた、今度再検査などなんでもよいです。どう治療していくかこれからどうしたらよいか記録しておきましょう", maxlength:"100" %>
+          <div class="label-title">N.次の受診予定日</div>
+            <%= f.text_area :next_day, class:"small-text-box", id:"next_day", placeholder:"◯週間後、◯ヶ月後に再診など。予約をしたなら具体的日付を記録しておきましょう。", maxlength:"40" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
